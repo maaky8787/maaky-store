@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجري - تطبيق التسوق الإلكتروني</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body dir="rtl">
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <h1>متجري</h1>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <div class="search-wrapper">
+                        <input
+                            type="text"
+                            id="search-input"
+                            placeholder="البحث عن المنتجات..."
+                            class="search-input"
+                        />
+                        <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Cart Button -->
+                <div class="header-actions">
+                    <button id="cart-button" class="cart-button">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h9"></path>
+                        </svg>
+                        <span>عربة التسوق</span>
+                        <span id="cart-count" class="cart-count hidden">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Search -->
+            <div class="mobile-search">
+                <div class="search-wrapper">
+                    <input
+                        type="text"
+                        id="mobile-search-input"
+                        placeholder="البحث عن المنتجات..."
+                        class="search-input"
+                    />
+                    <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1 class="hero-title">مرحباً بكم في متجري</h1>
+            <p class="hero-subtitle">اكتشف مجموعة متنوعة من المنتجات عالية الجودة بأفضل الأسعار</p>
+            <div class="hero-features">
+                <div class="feature">
+                    <span>🚚</span>
+                    <span>توصيل مجاني</span>
+                </div>
+                <div class="feature">
+                    <span>↩️</span>
+                    <span>إرجاع مجاني</span>
+                </div>
+                <div class="feature">
+                    <span>✅</span>
+                    <span>ضمان الجودة</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Filter -->
+        <div id="category-filter" class="category-filter">
+            <h2 class="section-title">الفئات</h2>
+            <div class="categories-grid" id="categories-container">
+                <!-- Categories will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Results Count -->
+        <div class="results-header">
+            <span id="results-count" class="results-count">0 منتج</span>
+            <h2 id="category-title" class="category-title">المنتجات</h2>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="products-grid" class="products-grid">
+            <!-- Products will be populated by JavaScript -->
+        </div>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="no-results hidden">
+            <div class="no-results-icon">🔍</div>
+            <h3 class="no-results-title">لم يتم العثور على منتجات</h3>
+            <p class="no-results-text">جرب البحث بكلمات مختلفة أو اختر فئة أخرى</p>
+        </div>
+    </main>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar hidden">
+        <div class="cart-overlay" id="cart-overlay"></div>
+        <div class="cart-content" id="cart-content">
+            <div class="cart-header">
+                <h2 class="cart-title">عربة التسوق</h2>
+                <button id="close-cart" class="close-button">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="cart-items" class="cart-items">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            
+            <div id="cart-footer" class="cart-footer">
+                <form id="checkout-form" class="checkout-form">
+                    <div class="form-group">
+                        <label for="customer_name">الاسم الكامل</label>
+                        <input type="text" id="customer_name" name="customer_name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="customer_phone">رقم الجوال</label>
+                        <input type="tel" id="customer_phone" name="customer_phone" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="customer_email">البريد الإلكتروني</label>
+                        <input type="email" id="customer_email" name="customer_email" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="customer_address">العنوان</label>
+                        <input type="text" id="customer_address" name="customer_address" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="customer_state">المنطقة/المحافظة</label>
+                        <input type="text" id="customer_state" name="customer_state" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="customer_city">المدينة</label>
+                        <input type="text" id="customer_city" name="customer_city" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="customer_notes">ملاحظات إضافية (اختياري)</label>
+                        <textarea id="customer_notes" name="customer_notes" rows="2"></textarea>
+                    </div>
+                </form>
+                <div class="cart-total-row">
+                    <span>المجموع الكلي:</span>
+                    <span id="cart-total" class="cart-total">0.00 ر.س</span>
+                </div>
+                <div class="cart-actions">
+                    <button id="checkout-button" class="btn btn-primary btn-full">إتمام الطلب</button>
+                    <button id="continue-shopping" class="btn btn-secondary btn-full">متابعة التسوق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="modal hidden">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title" class="modal-title"></h2>
+                <button id="close-modal" class="close-button">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="modal-body" class="modal-body">
+                <!-- Modal content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container">
+        <!-- Toast notifications will be added here -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
